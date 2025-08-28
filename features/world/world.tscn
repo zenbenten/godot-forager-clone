@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c20suljtiu5t"]
+[gd_scene load_steps=3 format=3 uid="uid://c20suljtiu5t"]
 
 [ext_resource type="PackedScene" uid="uid://der2ukbun70bu" path="res://features/player/player.tscn" id="1_vqgh6"]
+[ext_resource type="PackedScene" uid="uid://4maw2nysi6re" path="res://features/resources/tree/tree.tscn" id="2_6evwi"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_vqgh6")]
+
+[node name="Tree" parent="." instance=ExtResource("2_6evwi")]
+position = Vector2(545, 145)
+
+[node name="Tree2" parent="." instance=ExtResource("2_6evwi")]
+position = Vector2(583, 387)
+
+[node name="Tree3" parent="." instance=ExtResource("2_6evwi")]
+position = Vector2(267, 284)
