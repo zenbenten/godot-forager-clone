@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3u2aqf6lqfpm"]
+
+[ext_resource type="Script" uid="uid://d0w7fib8f3g2n" path="res://scripts/singleplayer_player.gd" id="1_ifacb"]
+[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="2_q8p15"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5va2"]
+radius = 65.0
+height = 130.0
+
+[node name="SinglePlayer" type="CharacterBody2D"]
+script = ExtResource("1_ifacb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -3.796)
+scale = Vector2(0.3125, 1.04369)
+texture = ExtResource("2_q8p15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v5va2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
