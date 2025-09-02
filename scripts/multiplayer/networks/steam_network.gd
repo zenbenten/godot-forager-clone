@@ -51,13 +51,10 @@ func _on_lobby_created(connect: int, lobby_id):
 
 func list_lobbies():
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
-	# NOTE: If you are using the test app id, you will need to apply a filter on your game name
-	# Otherwise, it may not show up in the lobby list of your clients
 	Steam.addRequestLobbyListStringFilter("name", "BAD", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()
 
 func _add_player_to_game(id: int):
-	# Only the server has the authority to spawn players.
 	if not multiplayer.is_server():
 		return
 

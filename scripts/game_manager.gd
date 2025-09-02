@@ -38,7 +38,7 @@ func join_lobby(lobby_id = 0):
 
 func _on_lobby_match_list(lobbies: Array):
 	print("On lobby match list")
-	print("Lobbies found:", lobbies) # <-- Add this line
+	print("Lobbies found:", lobbies)
 
 	for lobby_child in $"../SteamHUD/Panel/Lobbies/VBoxContainer".get_children():
 		lobby_child.queue_free()
@@ -65,7 +65,6 @@ func _on_lobby_match_list(lobbies: Array):
 			
 func _remove_single_player():
 	print("Remove single player")
-	# This finds the node we just named "Player"
 	var player_to_remove = get_tree().get_current_scene().get_node("Player")
 	if player_to_remove:
 		player_to_remove.queue_free()

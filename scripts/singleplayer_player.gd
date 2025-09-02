@@ -1,4 +1,3 @@
-# res://scripts/single_player_controller.gd
 extends CharacterBody2D
 
 const SPEED = 150.0
@@ -8,7 +7,7 @@ const SPEED = 150.0
 func _physics_process(delta):
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	# Set velocity from input
+	# set velocity from input
 	velocity = input_vector * SPEED
 	move_and_slide()
 

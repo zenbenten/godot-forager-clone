@@ -8,7 +8,5 @@ func _ready():
 		set_physics_process(false)
 		return
 
-	# The RPC call that sent the username has been removed from here.
-
 func _physics_process(delta):
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
