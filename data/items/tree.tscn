@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://de0ssdimokpc0"]
 
 [ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="1_1chso"]
-[ext_resource type="Script" uid="uid://cuvcap00f0sbd" path="res://scenes/data/tree.gd" id="1_xkgo0"]
+[ext_resource type="Script" uid="uid://cuvcap00f0sbd" path="res://scripts/objects/tree.gd" id="1_xkgo0"]
 [ext_resource type="Resource" uid="uid://djfim511wd8y4" path="res://data/items/wood.tres" id="2_tvk8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkgo0"]

@@ -5,8 +5,8 @@ enum MULTIPLAYER_NETWORK_TYPE { ENET, STEAM }
 @export var _players_spawn_node: Node2D
 
 var active_network_type: MULTIPLAYER_NETWORK_TYPE = MULTIPLAYER_NETWORK_TYPE.ENET
-var enet_network_scene := preload("res://scenes/multiplayer/networks/enet_network.tscn")
-var steam_network_scene := preload("res://scenes/multiplayer/networks/steam_network.tscn")
+var enet_network_scene := preload("res://scenes/networks/enet_network.tscn")
+var steam_network_scene := preload("res://scenes/networks/steam_network.tscn")
 var active_network
 
 func _build_multiplayer_network():
