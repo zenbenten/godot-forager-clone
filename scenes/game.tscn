@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=8 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/game_manager.gd" id="1_l4ihi"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
 [ext_resource type="Resource" uid="uid://djfim511wd8y4" path="res://scripts/data/items/wood.tres" id="2_p57ef"]
 [ext_resource type="Script" uid="uid://bn7k30un4krgc" path="res://scripts/multiplayer/networks/network_manager.gd" id="3_sp8dn"]
 [ext_resource type="PackedScene" uid="uid://3u2aqf6lqfpm" path="res://scenes/singleplayer_player.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bjepgwbger5by" path="res://scenes/ui/inventory_ui.tscn" id="6_u5sy4"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
 
 [node name="Game" type="Node2D"]
@@ -123,6 +124,8 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SteamHUD/Panel/Lobbies"]
 layout_mode = 2
+
+[node name="Control" parent="." instance=ExtResource("6_u5sy4")]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://d226nufmlvivj")

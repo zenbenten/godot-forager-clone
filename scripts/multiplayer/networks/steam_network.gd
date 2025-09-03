@@ -38,9 +38,9 @@ func join_as_client(lobby_id):
 	multiplayer.peer_connected.connect(_add_player_to_game)
 	multiplayer.peer_disconnected.connect(_del_player)
 
-func _on_lobby_created(connect: int, lobby_id):
+func _on_lobby_created(lobby_connect: int, lobby_id):
 	print("On lobby created")
-	if connect == 1:
+	if lobby_connect == 1:
 		_hosted_lobby_id = lobby_id
 		print("Created lobby: %s" % _hosted_lobby_id)
 		

@@ -25,7 +25,7 @@ func _apply_movement_from_input():
 	velocity = input_vector.normalized() * SPEED
 	move_and_slide()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if multiplayer.is_server():
 		

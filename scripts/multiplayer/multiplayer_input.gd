@@ -8,5 +8,5 @@ func _ready():
 		set_physics_process(false)
 		return
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
