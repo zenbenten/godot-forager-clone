@@ -3,7 +3,7 @@ extends Node
 const SERVER_PORT = 8080
 const SERVER_IP = "127.0.0.1"
 
-var multiplayer_scene = preload("res://scenes/multiplayer_player.tscn")
+var multiplayer_scene = preload("res://scenes/player/multiplayer_player.tscn")
 var multiplayer_peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 var _players_spawn_node
 
