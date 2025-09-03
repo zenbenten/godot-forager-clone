@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cuv4vme4rwno0"]
 
-[ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/game_manager.gd" id="1_l4ihi"]
+[ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/world/game_manager.gd" id="1_l4ihi"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
-[ext_resource type="Resource" uid="uid://djfim511wd8y4" path="res://scripts/data/items/wood.tres" id="2_p57ef"]
 [ext_resource type="Script" uid="uid://bn7k30un4krgc" path="res://scripts/multiplayer/networks/network_manager.gd" id="3_sp8dn"]
-[ext_resource type="PackedScene" uid="uid://3u2aqf6lqfpm" path="res://scenes/singleplayer_player.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://3u2aqf6lqfpm" path="res://scenes/player/singleplayer_player.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bjepgwbger5by" path="res://scenes/ui/inventory_ui.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://de0ssdimokpc0" path="res://data/items/tree.tscn" id="7_3gx7t"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
 
 [node name="Game" type="Node2D"]
@@ -13,7 +13,6 @@
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_l4ihi")
-test_item = ExtResource("2_p57ef")
 
 [node name="NetworkManager" type="Node" parent="." node_paths=PackedStringArray("_players_spawn_node")]
 unique_name_in_owner = true
@@ -135,6 +134,9 @@ spawn_limit = 10
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("5_iywne")]
+
+[node name="Tree" parent="." instance=ExtResource("7_3gx7t")]
+position = Vector2(251, 166)
 
 [connection signal="pressed" from="MultiplayerHUD/Panel/VBoxContainer/HostGame" to="GameManager" method="become_host"]
 [connection signal="pressed" from="MultiplayerHUD/Panel/VBoxContainer/JoinAsClient" to="GameManager" method="join_as_client"]

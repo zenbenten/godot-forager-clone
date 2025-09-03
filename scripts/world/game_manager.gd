@@ -1,11 +1,6 @@
 extends Node
 
-#DELETE ME
-@export var test_item: ItemData
-
 func _ready():
-	#DELETE ME
-	InventoryManager.add_item(test_item, 10)
 	
 	if OS.has_feature("dedicated_server"):
 		print("Starting dedicated server...")

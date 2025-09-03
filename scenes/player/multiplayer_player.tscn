@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d226nufmlvivj"]
+[gd_scene load_steps=8 format=3 uid="uid://d226nufmlvivj"]
 
-[ext_resource type="Script" uid="uid://c6b6w15hcegfx" path="res://scripts/multiplayer/multiplayer_controller.gd" id="1_ij7lf"]
-[ext_resource type="Script" uid="uid://dnfek3amkfdtu" path="res://scripts/multiplayer/multiplayer_input.gd" id="2_75sn2"]
+[ext_resource type="Script" uid="uid://c6b6w15hcegfx" path="res://scripts/player/multiplayer_controller.gd" id="1_ij7lf"]
+[ext_resource type="Script" uid="uid://dnfek3amkfdtu" path="res://scripts/player/multiplayer_input.gd" id="2_75sn2"]
 [ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="3_2d20i"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bcfu3"]
@@ -19,6 +19,9 @@ properties/0/replication_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dch5"]
 radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5xiv"]
+size = Vector2(159, 169)
 
 [node name="MultiplayerPlayer" type="CharacterBody2D"]
 collision_layer = 2
@@ -45,3 +48,9 @@ position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_2d20i")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_g5xiv")

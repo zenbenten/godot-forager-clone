@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 130.0
 
 var alive = true 
+@onready var interaction_area: Area2D = $InteractionArea
 
 @export var player_id := 1:
 	set(id):
@@ -26,9 +27,11 @@ func _apply_movement_from_input():
 	move_and_slide()
 
 func _physics_process(_delta):
+	if Input.is_action_just_pressed("interact"):
+		interact_with_nearby_object()
 	
 	if multiplayer.is_server():
-		
+	
 		if not alive:
 			pass
 		
@@ -50,3 +53,16 @@ func _respawn():
 func _set_alive():
 	print("alive again!")
 	alive = true
+
+func interact_with_nearby_object():
+	# Get a list of all physics bodies inside detection bubble
+	var nearby_objects = interaction_area.get_overlapping_bodies()
+
+	# if the list isnt empty interact with the first object found
+	if not nearby_objects.is_empty():
+		var target = nearby_objects[0]
+
+		#check if the object has the interact function before calling it
+		if target.has_method("interact"):
+			print("Found nearby object:", target.name, ". Interacting!")
+			target.interact(self) #call the interact function 
