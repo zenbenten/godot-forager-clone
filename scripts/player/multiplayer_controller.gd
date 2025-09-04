@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 
-var alive = true 
 @onready var interaction_area: Area2D = $InteractionArea
 
 @export var player_id := 1:
@@ -31,28 +30,7 @@ func _physics_process(_delta):
 		interact_with_nearby_object()
 	
 	if multiplayer.is_server():
-	
-		if not alive:
-			pass
-		
 		_apply_movement_from_input()
-
-func mark_dead():
-	print("Mark player dead!")
-	alive = false
-	velocity = Vector2.ZERO # Stop movement when dead
-	$CollisionShape2D.set_deferred("disabled", true)
-	$RespawnTimer.start()
-
-func _respawn():
-	print("Respawned!")
-	position = MultiplayerManager.respawn_point
-	$CollisionShape2D.set_deferred("disabled", false)
-	# might want to call _set_alive() here instead
-	
-func _set_alive():
-	print("alive again!")
-	alive = true
 
 func interact_with_nearby_object():
 	# Get a list of all physics bodies inside detection bubble
