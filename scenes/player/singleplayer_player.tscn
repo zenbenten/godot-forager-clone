@@ -1,7 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://3u2aqf6lqfpm"]
+[gd_scene load_steps=5 format=3 uid="uid://dvu2t45gew856"]
 
-[ext_resource type="Script" uid="uid://d0w7fib8f3g2n" path="res://scripts/player/singleplayer_player.gd" id="1_ifacb"]
 [ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="2_q8p15"]
+
+[sub_resource type="GDScript" id="GDScript_uybn5"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 150.0
+
+@onready var interaction_area: Area2D = $InteractionArea
+@onready var sprite = $Sprite2D
+
+func _physics_process(_delta):
+	var input_vector = Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
+	
+	# set velocity from input
+	velocity = input_vector * SPEED
+	move_and_slide()
+	
+	if Input.is_action_just_pressed(\"interact\"):
+		interact_with_nearby_object()
+
+	# Update visuals
+	if input_vector.x > 0:
+		sprite.flip_h = false
+	elif input_vector.x < 0:
+		sprite.flip_h = true
+
+func interact_with_nearby_object():
+	# Get a list of all physics bodies inside detection bubble
+	var nearby_objects = interaction_area.get_overlapping_bodies()
+
+	# if the list isnt empty interact with the first object found
+	if not nearby_objects.is_empty():
+		var target = nearby_objects[0]
+
+		#check if the object has the interact function before calling it
+		if target.has_method(\"interact\"):
+			print(\"Found nearby object:\", target.name, \". Interacting!\")
+			target.interact(self) #call the interact function 
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5va2"]
 radius = 65.0
@@ -12,7 +49,7 @@ radius = 134.015
 
 [node name="SinglePlayer" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_ifacb")
+script = SubResource("GDScript_uybn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, -3.796)
