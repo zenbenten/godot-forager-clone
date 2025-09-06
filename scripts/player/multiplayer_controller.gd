@@ -36,6 +36,13 @@ func _apply_movement_from_input():
 	velocity = input_vector.normalized() * SPEED
 	move_and_slide()
 
+@rpc("call_local", "reliable")
+func add_item_to_inventory(item_path: String, quantity: int):
+	# This code runs on the client's machine
+	print("CLIENT: Received item ", item_path, " from server.")
+	var item_data: ItemData = load(item_path)
+	InventoryManager.add_item(item_data, quantity)
+	
 @rpc("any_peer", "call_local")
 func server_perform_interaction():
 	var nearby_objects = interaction_area.get_overlapping_bodies()
