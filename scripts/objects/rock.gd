@@ -6,13 +6,24 @@ extends StaticBody2D
 # player calls this
 # This function runs on the server
 func interact(player_node):
-	print("Rock was interacted with by: ", player_node.name)
+	print(self.name, " was interacted with by: ", player_node.name)
 	
-	# Call the RPC on the specific player node that interacted
-	player_node.add_item_to_inventory.rpc_id(player_node.player_id, drops_item.resource_path, drops_quantity)
-	
-	#the server tells the NetworkManager to destroy this tree for everyone
 	var network_manager = get_node("/root/Game/NetworkManager")
+	var player_id = player_node.player_id
+	
+	# use the ItemData resource as the key
+	var server_inventory = network_manager.player_inventories[player_id]
+	var item_resource: ItemData = drops_item
+	
+	if server_inventory.has(item_resource):
+		server_inventory[item_resource] += drops_quantity
+	else:
+		server_inventory[item_resource] = drops_quantity
+	
+	# tell the client to update its local inventory for the UI
+	player_node.add_item_to_inventory.rpc_id(player_id, item_resource.resource_path, drops_quantity)
+	
+	# tell everyone to destroy this object
 	network_manager.destroy_object_rpc.rpc(self.get_path())
 
 @rpc("any_peer")
