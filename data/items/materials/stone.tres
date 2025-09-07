@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cb53ck6gcav1a"]
+
+[ext_resource type="Script" uid="uid://cbpasqjjxtcxi" path="res://scripts/data/item_data.gd" id="1_wtm2f"]
+
+[resource]
+script = ExtResource("1_wtm2f")
+id = "stone"
+display_name = "Stone"
+description = ""
+max_stack_size = 64
+metadata/_custom_type_script = "uid://cbpasqjjxtcxi"

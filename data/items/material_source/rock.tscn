@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkoumtvprpdxl"]
+
+[ext_resource type="Script" uid="uid://kqfweqjosj1q" path="res://scripts/objects/rock.gd" id="1_h4kid"]
+[ext_resource type="Resource" uid="uid://cb53ck6gcav1a" path="res://data/items/materials/stone.tres" id="2_dausy"]
+[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="2_fmec5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apfxu"]
+size = Vector2(123, 119)
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_h4kid")
+drops_item = ExtResource("2_dausy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_apfxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.188235, 0.25098, 0.376471, 1)
+texture = ExtResource("2_fmec5")
