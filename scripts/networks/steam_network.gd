@@ -60,6 +60,9 @@ func _add_player_to_game(id: int):
 
 	print("SERVER: Player %s joined, spawning instance." % id)
 	
+	#give them server side inventory
+	get_parent().player_inventories[id] = {}
+	
 	var player_to_add = multiplayer_scene.instantiate()
 	player_to_add.player_id = id
 	player_to_add.name = str(id)

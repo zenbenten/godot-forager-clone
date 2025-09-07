@@ -3,6 +3,8 @@ extends Node
 enum MULTIPLAYER_NETWORK_TYPE { ENET, STEAM }
 
 @export var _players_spawn_node: Node2D
+#everyone's inventories
+var player_inventories: Dictionary = {}
 
 var active_network_type: MULTIPLAYER_NETWORK_TYPE = MULTIPLAYER_NETWORK_TYPE.ENET
 var enet_network_scene := preload("res://scenes/networks/enet_network.tscn")

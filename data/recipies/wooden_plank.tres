@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=4 format=3 uid="uid://cnuebofesg13a"]
+
+[ext_resource type="Script" uid="uid://x425tq8nrp5l" path="res://scripts/data/recipe_data.gd" id="1_2hh56"]
+[ext_resource type="Resource" uid="uid://djfim511wd8y4" path="res://data/materials/wood.tres" id="1_2rqji"]
+[ext_resource type="Resource" uid="uid://csoiheet0hcre" path="res://data/items/wooden_plank.tres" id="1_igmqt"]
+
+[resource]
+script = ExtResource("1_2hh56")
+output_item = ExtResource("1_igmqt")
+output_quantity = 1
+ingredients = {
+ExtResource("1_2rqji"): 2
+}
+metadata/_custom_type_script = "uid://x425tq8nrp5l"

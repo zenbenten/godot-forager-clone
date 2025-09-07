@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
 [ext_resource type="Script" uid="uid://bn7k30un4krgc" path="res://scripts/networks/network_manager.gd" id="3_sp8dn"]
 [ext_resource type="PackedScene" uid="uid://bjepgwbger5by" path="res://scenes/ui/inventory_ui.tscn" id="6_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://bkoumtvprpdxl" path="res://data/items/material_source/rock.tscn" id="7_2oj1e"]
-[ext_resource type="PackedScene" uid="uid://de0ssdimokpc0" path="res://data/items/material_source/tree.tscn" id="7_3gx7t"]
+[ext_resource type="PackedScene" uid="uid://bkoumtvprpdxl" path="res://data/material_source/rock.tscn" id="7_2oj1e"]
+[ext_resource type="PackedScene" uid="uid://de0ssdimokpc0" path="res://data/material_source/tree.tscn" id="7_3gx7t"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
 
 [node name="Game" type="Node2D"]
@@ -119,6 +119,9 @@ spawn_limit = 10
 
 [node name="Tree" parent="." instance=ExtResource("7_3gx7t")]
 position = Vector2(251, 166)
+
+[node name="Tree2" parent="." instance=ExtResource("7_3gx7t")]
+position = Vector2(-166, -7)
 
 [node name="Rock" parent="." instance=ExtResource("7_2oj1e")]
 position = Vector2(255, -127)

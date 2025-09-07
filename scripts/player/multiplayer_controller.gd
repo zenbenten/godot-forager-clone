@@ -26,6 +26,11 @@ func _physics_process(_delta):
 	
 	#check for interaction input only if this is the local player
 	if multiplayer.get_unique_id() == player_id:
+		if Input.is_action_just_pressed("craft_test"):
+			#TODO: make this not be planks every time
+			var plank_recipe_path = "res://data/recipies/wooden_plank.tres"
+			CraftingManager.server_try_craft_recipe.rpc_id(1, plank_recipe_path)
+			
 		if Input.is_action_just_pressed("interact"):
 			# instead of interacting directly send a request to the server
 			server_perform_interaction.rpc_id(1)
@@ -42,6 +47,11 @@ func add_item_to_inventory(item_path: String, quantity: int):
 	print("CLIENT: Received item ", item_path, " from server.")
 	var item_data: ItemData = load(item_path)
 	InventoryManager.add_item(item_data, quantity)
+
+@rpc("call_local", "reliable")
+func remove_item_from_inventory(item_path: String, quantity: int):
+	var item_data: ItemData = load(item_path)
+	InventoryManager.remove_item(item_data, quantity)
 	
 @rpc("any_peer", "call_local")
 func server_perform_interaction():
