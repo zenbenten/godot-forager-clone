@@ -55,3 +55,18 @@ func destroy_object_rpc(object_path: NodePath):
 	if object_to_destroy:
 		print("Destroying object at path: ", object_path)
 		object_to_destroy.queue_free()
+		
+func server_give_item_to_player(player_id: int, item_resource: ItemData, quantity: int):
+	# update the servers authoritative inventory
+	var server_inventory = player_inventories[player_id]
+	if server_inventory.has(item_resource):
+		server_inventory[item_resource] += quantity
+	else:
+		server_inventory[item_resource] = quantity
+		
+	#fnd the player node and tell their client to update its UI
+	var player_node = _players_spawn_node.get_node_or_null(str(player_id))
+	if player_node:
+		player_node.add_item_to_inventory.rpc_id(player_id, item_resource.resource_path, quantity)
+	else:
+		print("SERVER ERROR: Could not find player node with ID ", player_id)
