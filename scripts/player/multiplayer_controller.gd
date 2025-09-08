@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
+const SPEED = 250.0
 
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var camera: Camera2D = $Camera2D
