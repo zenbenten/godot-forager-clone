@@ -14,10 +14,3 @@ func interact(player_node):
 	
 	# Tell the manager to destroy this object for everyone
 	network_manager.destroy_object_rpc.rpc(self.get_path())
-
-@rpc("any_peer")
-func add_item_rpc(item_path, quantity):
-	# This function would exist on the player or a manager on the client side
-	# It would then call the local InventoryManager
-	var item_data = load(item_path)
-	InventoryManager.add_item(item_data, quantity)
