@@ -6,8 +6,8 @@ func _ready():
 func become_host():
 	print("Become host pressed")
 	# hide the UI.
-	%MultiplayerHUD.hide()
-	%SteamHUD.hide()
+	%MultiplayerUI.hide()
+	%SteamUI.hide()
 	%NetworkManager.become_host()
 	
 func join_as_client():
@@ -16,8 +16,8 @@ func join_as_client():
 
 func use_steam():
 	print("Using Steam!")
-	%MultiplayerHUD.hide()
-	%SteamHUD.show()
+	%MultiplayerUI.hide()
+	%SteamUI.show()
 	SteamManager.initialize_steam()
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	%NetworkManager.active_network_type = %NetworkManager.MULTIPLAYER_NETWORK_TYPE.STEAM
@@ -29,15 +29,15 @@ func list_steam_lobbies():
 func join_lobby(lobby_id = 0):
 	print("Joining lobby %s" % lobby_id)
 	#hide the UI.
-	%MultiplayerHUD.hide()
-	%SteamHUD.hide()
+	%MultiplayerUI.hide()
+	%SteamUI.hide()
 	%NetworkManager.join_as_client(lobby_id)
 
 func _on_lobby_match_list(lobbies: Array):
 	print("On lobby match list")
 	print("Lobbies found:", lobbies)
 
-	for lobby_child in $"../SteamHUD/Panel/Lobbies/VBoxContainer".get_children():
+	for lobby_child in $"../SteamUI/Panel/Lobbies/VBoxContainer".get_children():
 		lobby_child.queue_free()
 		
 	for lobby in lobbies:
@@ -58,4 +58,4 @@ func _on_lobby_match_list(lobbies: Array):
 			lobby_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 			lobby_button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 			
-			$"../SteamHUD/Panel/Lobbies/VBoxContainer".add_child(lobby_button)
+			$"../SteamUI/Panel/Lobbies/VBoxContainer".add_child(lobby_button)
