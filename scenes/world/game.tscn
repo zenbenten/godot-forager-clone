@@ -76,13 +76,13 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HostP2PGame" type="Button" parent="UI/SteamUI/Panel/Options"]
+[node name="HostP2PGameButton" type="Button" parent="UI/SteamUI/Panel/Options"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_8cblx")
 theme_override_font_sizes/font_size = 8
 text = "Host P2P Game"
 
-[node name="ListLobbies" type="Button" parent="UI/SteamUI/Panel/Options"]
+[node name="ListLobbiesButton" type="Button" parent="UI/SteamUI/Panel/Options"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_8cblx")
 theme_override_font_sizes/font_size = 8
@@ -98,7 +98,8 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SteamUI/Panel/Lobbies"]
+[node name="LobbyList" type="VBoxContainer" parent="UI/SteamUI/Panel/Lobbies"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="MultiplayerUI" type="Control" parent="UI"]
@@ -152,8 +153,8 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="pressed" from="UI/SteamUI/Panel/Options/HostP2PGame" to="GameManager" method="become_host"]
-[connection signal="pressed" from="UI/SteamUI/Panel/Options/ListLobbies" to="GameManager" method="list_steam_lobbies"]
+[connection signal="pressed" from="UI/SteamUI/Panel/Options/HostP2PGameButton" to="GameManager" method="become_host"]
+[connection signal="pressed" from="UI/SteamUI/Panel/Options/ListLobbiesButton" to="GameManager" method="list_steam_lobbies"]
 [connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/HostGame" to="GameManager" method="become_host"]
 [connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/JoinAsClient" to="GameManager" method="join_as_client"]
 [connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/UseSteam" to="GameManager" method="use_steam"]

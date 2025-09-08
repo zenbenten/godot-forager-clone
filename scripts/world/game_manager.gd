@@ -37,7 +37,7 @@ func _on_lobby_match_list(lobbies: Array):
 	print("On lobby match list")
 	print("Lobbies found:", lobbies)
 
-	for lobby_child in $"../UI/SteamUI/Panel/Lobbies/VBoxContainer".get_children():
+	for lobby_child in %LobbyList.get_children():
 		lobby_child.queue_free()
 		
 	for lobby in lobbies:
@@ -58,4 +58,4 @@ func _on_lobby_match_list(lobbies: Array):
 			lobby_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 			lobby_button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 			
-			$"../UI/SteamUI/Panel/Lobbies/VBoxContainer".add_child(lobby_button)
+			%LobbyList.add_child(lobby_button)
