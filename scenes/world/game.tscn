@@ -26,17 +26,19 @@ spawn_limit = 10
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="Tree" parent="." instance=ExtResource("7_3gx7t")]
-position = Vector2(128, 128)
-
-[node name="Tree2" parent="." instance=ExtResource("7_3gx7t")]
-position = Vector2(-128, 128)
-
-[node name="Rock" parent="." instance=ExtResource("7_2oj1e")]
-position = Vector2(128, -128)
-
-[node name="Rock2" parent="." instance=ExtResource("7_2oj1e")]
+[node name="Objects" type="Node2D" parent="."]
 position = Vector2(-128, -128)
+
+[node name="Tree" parent="Objects" instance=ExtResource("7_3gx7t")]
+position = Vector2(256, 256)
+
+[node name="Tree2" parent="Objects" instance=ExtResource("7_3gx7t")]
+position = Vector2(0, 256)
+
+[node name="Rock" parent="Objects" instance=ExtResource("7_2oj1e")]
+position = Vector2(256, 0)
+
+[node name="Rock2" parent="Objects" instance=ExtResource("7_2oj1e")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
