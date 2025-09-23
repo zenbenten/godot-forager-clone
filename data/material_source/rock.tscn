@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kqfweqjosj1q" path="res://scripts/objects/rock.gd" id="1_h4kid"]
 [ext_resource type="Resource" uid="uid://cb53ck6gcav1a" path="res://data/materials/stone.tres" id="2_dausy"]
-[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="2_fmec5"]
+[ext_resource type="Texture2D" uid="uid://lmj0brcu0w06" path="res://assets/Sprites/rock.png" id="3_d1vtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apfxu"]
 size = Vector2(123, 119)
@@ -17,6 +17,4 @@ scale = Vector2(0.53, 0.53)
 shape = SubResource("RectangleShape2D_apfxu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.188235, 0.25098, 0.376471, 1)
-scale = Vector2(0.535, 0.535)
-texture = ExtResource("2_fmec5")
+texture = ExtResource("3_d1vtg")
