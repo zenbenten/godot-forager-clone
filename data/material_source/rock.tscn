@@ -13,8 +13,10 @@ drops_item = ExtResource("2_dausy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
+scale = Vector2(0.53, 0.53)
 shape = SubResource("RectangleShape2D_apfxu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.188235, 0.25098, 0.376471, 1)
+scale = Vector2(0.535, 0.535)
 texture = ExtResource("2_fmec5")

@@ -36,19 +36,18 @@ replication_config = SubResource("SceneReplicationConfig_kgm8b")
 script = ExtResource("2_75sn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_7dch5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -7)
 limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.535, 0.535)
 texture = ExtResource("3_2d20i")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(1.5, -0.5)
+scale = Vector2(0.395, 0.395)
 shape = SubResource("RectangleShape2D_g5xiv")
