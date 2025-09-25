@@ -31,9 +31,14 @@ func _physics_process(_delta):
 			var plank_recipe_path = "res://data/recipies/wooden_plank.tres"
 			CraftingManager.server_try_craft_recipe.rpc_id(1, plank_recipe_path)
 			
+		#mining input
 		if Input.is_action_just_pressed("interact"):
 			# instead of interacting directly send a request to the server
 			server_perform_interaction.rpc_id(1)
+			
+		#ui toggle input
+		if Input.is_action_just_pressed("menu_bar_toggle"):
+			MultiplayerManager.game_manager.toggle_menu_bar()
 
 func _apply_movement_from_input():
 	# movement is calculated from the synchronized input vector

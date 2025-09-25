@@ -1,6 +1,11 @@
 extends Node
 
+const menu_bar_scene = preload("res://scenes/ui/menu_bar_ui.tscn")
+@onready var ui_canvas = $"../UI"
+var current_menu_bar_instance = null
+
 func _ready():
+	MultiplayerManager.game_manager = self
 	print("Game Manager ready. Please host or join a game.")
 
 func become_host():
@@ -59,3 +64,22 @@ func _on_lobby_match_list(lobbies: Array):
 			lobby_button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 			
 			%LobbyList.add_child(lobby_button)
+			
+#----------------UI------------------------#
+
+func toggle_menu_bar():
+	# Check if instance variable points to a existing node.
+	if is_instance_valid(current_menu_bar_instance):
+		# If it does the menu is open. Close it
+		print("GameManager: Closing MenuBarUI.")
+		current_menu_bar_instance.queue_free()
+		current_menu_bar_instance = null #clear the reference
+	else:
+		# If the variable is null or the instance is invalid the menu is closed. open it
+		print("GameManager: Opening MenuBarUI.")
+		var new_menu_bar = menu_bar_scene.instantiate()
+		
+		# Store a reference to the new instance immediatly
+		current_menu_bar_instance = new_menu_bar
+		
+		ui_canvas.add_child(current_menu_bar_instance)

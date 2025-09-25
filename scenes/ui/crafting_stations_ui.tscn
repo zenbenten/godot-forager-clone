@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://qvgqrs4qyppc"]
+
+[node name="CraftingStationsUI" type="Control"]
+layout_mode = 3
+anchor_left = 0.15
+anchor_top = 0.861
+anchor_right = 0.15
+anchor_bottom = 0.861
+offset_left = 1.77499
+offset_top = 0.0799561
+offset_right = 1.77499
+offset_bottom = 0.0799561
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -20.0
+offset_right = 66.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="BasicFabricator" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Basic Fabricator"

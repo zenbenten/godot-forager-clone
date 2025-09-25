@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=8 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/world/game_manager.gd" id="1_l4ihi"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bkoumtvprpdxl" path="res://data/material_source/rock.tscn" id="7_2oj1e"]
 [ext_resource type="PackedScene" uid="uid://de0ssdimokpc0" path="res://data/material_source/tree.tscn" id="7_3gx7t"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
-[ext_resource type="PackedScene" uid="uid://d2wsccn28dqmh" path="res://scenes/ui/menu_bar_ui.tscn" id="8_2oj1e"]
 
 [node name="Game" type="Node2D"]
 
@@ -155,8 +154,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="MenuBarUI" parent="UI" instance=ExtResource("8_2oj1e")]
 
 [connection signal="pressed" from="UI/SteamUI/Panel/Options/HostP2PGameButton" to="GameManager" method="become_host"]
 [connection signal="pressed" from="UI/SteamUI/Panel/Options/ListLobbiesButton" to="GameManager" method="list_steam_lobbies"]
