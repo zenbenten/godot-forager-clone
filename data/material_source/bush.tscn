@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kqfweqjosj1q" path="res://scripts/objects/rock.gd" id="1_nykhp"]
 [ext_resource type="Resource" uid="uid://c72vreyt0msj6" path="res://data/materials/berries.tres" id="2_nykhp"]
-[ext_resource type="Texture2D" uid="uid://6milsnb05vua" path="res://scenes/ui/blueberrybush.png" id="3_nykhp"]
+[ext_resource type="Texture2D" uid="uid://6milsnb05vua" path="res://assets/Sprites/blueberrybush.png" id="3_nykhp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apfxu"]
 size = Vector2(123, 119)
