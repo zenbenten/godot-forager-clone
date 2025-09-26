@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=9 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/world/game_manager.gd" id="1_l4ihi"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
 [ext_resource type="Script" uid="uid://bn7k30un4krgc" path="res://scripts/networks/network_manager.gd" id="3_sp8dn"]
+[ext_resource type="PackedScene" uid="uid://b720h7akivni2" path="res://data/material_source/bush.tscn" id="5_2oj1e"]
 [ext_resource type="PackedScene" uid="uid://bjepgwbger5by" path="res://scenes/ui/inventory_ui.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bkoumtvprpdxl" path="res://data/material_source/rock.tscn" id="7_2oj1e"]
 [ext_resource type="PackedScene" uid="uid://de0ssdimokpc0" path="res://data/material_source/tree.tscn" id="7_3gx7t"]
@@ -39,6 +40,12 @@ position = Vector2(0, 256)
 position = Vector2(256, 0)
 
 [node name="Rock2" parent="Objects" instance=ExtResource("7_2oj1e")]
+
+[node name="Bush" parent="Objects" instance=ExtResource("5_2oj1e")]
+position = Vector2(-192, 129)
+
+[node name="Bush2" parent="Objects" instance=ExtResource("5_2oj1e")]
+position = Vector2(448, 128)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
