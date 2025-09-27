@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://ct2j6kg0vxifn"]
+
+[ext_resource type="Script" uid="uid://csqk2qjwcwvrm" path="res://scripts/data/building_data.gd" id="1_3edc5"]
+[ext_resource type="PackedScene" uid="uid://tkxeqj82osyv" path="res://data/crafting_stations/basic_fabricator.tscn" id="1_v23dr"]
+[ext_resource type="Resource" uid="uid://csoiheet0hcre" path="res://data/items/wooden_plank.tres" id="2_dc1w8"]
+
+[resource]
+script = ExtResource("1_3edc5")
+building_name = "Basic Fabricator"
+building_scene = ExtResource("1_v23dr")
+ingredients = {
+ExtResource("2_dc1w8"): 1
+}
+metadata/_custom_type_script = "uid://csqk2qjwcwvrm"

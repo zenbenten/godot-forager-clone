@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkxeqj82osyv"]
+
+[ext_resource type="Texture2D" uid="uid://dptltki22hcea" path="res://assets/Sprites/Fabricator.png" id="1_7ghq6"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7ghq6"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
+[node name="BasicFabricator" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ghq6")
+
+[node name="BuildingScynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7ghq6")

@@ -67,3 +67,33 @@ func server_perform_interaction():
 		if target.has_method("interact"):
 			print("SERVER: Player ", player_id, " is interacting with ", target.name)
 			target.interact(self)
+		
+
+#this function is better for non movement input like mouse clicks
+func _unhandled_input(event):
+	#only care about the local players input
+	if multiplayer.get_unique_id() != player_id:
+		return
+
+	#check if the player left clicked
+	if event.is_action_pressed("build"):
+		
+		#if we are in build mode place the object
+		if BuildManager.pending_build_data != null:
+			var mouse_pos = get_global_mouse_position()
+			# TODO: snap this position to grid.
+			
+			var data_path = BuildManager.pending_build_data.resource_path
+			
+			#send the request to the server to place the building
+			BuildManager.server_place_building.rpc_id(1, data_path, mouse_pos)
+			
+			# exit build mode after placing the item
+			BuildManager.exit_build_mode()
+			
+			# this stops the click from also triggering an interaction
+			get_viewport().set_input_as_handled()
+			
+		# If not in build mode perform a normal interaction
+		elif Input.is_action_just_pressed("interact"):
+			server_perform_interaction.rpc_id(1)
