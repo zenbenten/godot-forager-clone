@@ -11,7 +11,6 @@ const fabricator_build_data = preload("res://data/crafting_stations/basic_fabric
 func _ready():
 	#connect the button signals to functions
 	crafting_button.pressed.connect(show_crafting_stations)
-	show_crafting_stations()
 func _clear_content():
 	for child in content_container.get_children():
 		child.queue_free()
