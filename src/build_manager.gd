@@ -65,8 +65,7 @@ func _on_building_spawned(newly_spawned_node):
 # --- helper functions ---
 
 func _check_ingredients(p_id: int, p_build_data: BuildingData) -> bool:
-	var network_manager = get_tree().get_root().get_node("Game/NetworkManager")
-	var inventory = network_manager.player_inventories.get(p_id, {})
+	var inventory = ServerManager.player_inventories.get(p_id, {})
 	for ingredient: ItemData in p_build_data.ingredients.keys():
 		var required = p_build_data.ingredients[ingredient]
 		var available = inventory.get(ingredient, 0)
@@ -75,8 +74,7 @@ func _check_ingredients(p_id: int, p_build_data: BuildingData) -> bool:
 	return true
 
 func _consume_ingredients(p_id: int, p_build_data: BuildingData):
-	var network_manager = get_tree().get_root().get_node("Game/NetworkManager")
-	var inventory = network_manager.player_inventories.get(p_id, {})
+	var inventory = ServerManager.player_inventories.get(p_id, {})
 	var player_node = get_tree().get_root().get_node_or_null("Game/Players/" + str(p_id))
 	if not is_instance_valid(player_node):
 		return

@@ -26,6 +26,8 @@ SteamManager="*res://src/steam_manager.gd"
 InventoryManager="*res://src/inventory_manager.gd"
 CraftingManager="*res://src/crafting_manager.gd"
 BuildManager="*res://src/build_manager.gd"
+WorldManager="*res://src/world_manager.gd"
+ServerManager="*res://src/server_manager.gd"
 
 [display]
 

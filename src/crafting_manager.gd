@@ -20,8 +20,7 @@ func server_try_craft_recipe(recipe_path: String):
 #-----------------------Helper functions for server ----------------------------------
 func check_ingredients(p_id, p_recipe: RecipeData) -> bool:
 	#returns true if player has enough ingredients for the recipe
-	var network_manager = get_tree().get_root().get_node("Game/NetworkManager")
-	var inventory = network_manager.player_inventories.get(p_id, {})
+	var inventory = ServerManager.player_inventories.get(p_id, {})
 	for ingredient: ItemData in p_recipe.ingredients.keys():
 		var required = p_recipe.ingredients[ingredient]
 		var available = inventory.get(ingredient, 0)
@@ -31,8 +30,7 @@ func check_ingredients(p_id, p_recipe: RecipeData) -> bool:
 
 func consume_ingredients(p_id, p_recipe: RecipeData):
 	#Removes required items from players inventory and sends RPCs
-	var network_manager = get_tree().get_root().get_node("Game/NetworkManager")
-	var inventory = network_manager.player_inventories.get(p_id, {})
+	var inventory = ServerManager.player_inventories.get(p_id, {})
 	for ingredient: ItemData in p_recipe.ingredients.keys():
 		var required = p_recipe.ingredients[ingredient]
 		if inventory.has(ingredient):
@@ -45,8 +43,7 @@ func consume_ingredients(p_id, p_recipe: RecipeData):
 
 func add_crafted_item(p_id, p_recipe: RecipeData):
 	# Adds the crafted item to players inventory and sends RPC
-	var network_manager = get_tree().get_root().get_node("Game/NetworkManager")
-	var inventory = network_manager.player_inventories.get(p_id, {})
+	var inventory = ServerManager.player_inventories.get(p_id, {})
 	var crafted_item: ItemData = p_recipe.output_item
 	var crafted_count = p_recipe.output_quantity
 	inventory[crafted_item] = inventory.get(crafted_item, 0) + crafted_count
