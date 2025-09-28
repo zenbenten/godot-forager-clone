@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cuv4vme4rwno0"]
 
-[ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/world/game_manager.gd" id="1_l4ihi"]
+[ext_resource type="Script" uid="uid://dt6cku0034183" path="res://scripts/world/game.gd" id="1_l4ihi"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
 [ext_resource type="Script" uid="uid://bn7k30un4krgc" path="res://scripts/networks/network_manager.gd" id="3_sp8dn"]
 [ext_resource type="PackedScene" uid="uid://b720h7akivni2" path="res://data/material_source/bush.tscn" id="5_2oj1e"]
@@ -11,7 +11,7 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameController" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_l4ihi")
 
@@ -169,8 +169,8 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="pressed" from="UI/SteamUI/Panel/Options/HostP2PGameButton" to="GameManager" method="become_host"]
-[connection signal="pressed" from="UI/SteamUI/Panel/Options/ListLobbiesButton" to="GameManager" method="list_steam_lobbies"]
-[connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/HostGame" to="GameManager" method="become_host"]
-[connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/JoinAsClient" to="GameManager" method="join_as_client"]
-[connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/UseSteam" to="GameManager" method="use_steam"]
+[connection signal="pressed" from="UI/SteamUI/Panel/Options/HostP2PGameButton" to="GameController" method="become_host"]
+[connection signal="pressed" from="UI/SteamUI/Panel/Options/ListLobbiesButton" to="GameController" method="list_steam_lobbies"]
+[connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/HostGame" to="GameController" method="become_host"]
+[connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/JoinAsClient" to="GameController" method="join_as_client"]
+[connection signal="pressed" from="UI/MultiplayerUI/Panel/VBoxContainer/UseSteam" to="GameController" method="use_steam"]

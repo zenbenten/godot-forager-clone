@@ -26,5 +26,5 @@ func on_build_requested(building_data: BuildingData):
 	BuildManager.enter_build_mode(building_data)
 	
 	#close the entire menu bar after entering build mode
-	#use queue_free() because the GameManager will handle recreating it
+	#use queue_free() because the GameController will handle recreating it
 	queue_free()
