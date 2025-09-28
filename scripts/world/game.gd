@@ -71,12 +71,12 @@ func toggle_menu_bar():
 	# Check if instance variable points to a existing node.
 	if is_instance_valid(current_menu_bar_instance):
 		# If it does the menu is open. Close it
-		print("GameManager: Closing MenuBarUI.")
+		print("GameController: Closing MenuBarUI.")
 		current_menu_bar_instance.queue_free()
 		current_menu_bar_instance = null #clear the reference
 	else:
 		# If the variable is null or the instance is invalid the menu is closed. open it
-		print("GameManager: Opening MenuBarUI.")
+		print("GameController: Opening MenuBarUI.")
 		var new_menu_bar = menu_bar_scene.instantiate()
 		
 		# Store a reference to the new instance immediatly
