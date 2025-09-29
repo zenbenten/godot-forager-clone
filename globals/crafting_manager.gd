@@ -1,11 +1,30 @@
 extends Node
 
-@rpc("any_peer", "call_local", "reliable")
-func server_try_craft_recipe(recipe_path: String):
-	var player_id = multiplayer.get_remote_sender_id()
-	var recipe: RecipeData = load(recipe_path)
+var recipes = {}
+
+func _ready():
+	#path for all recipe .tres files
+	var recipe_folder = "res://data/recipes/"
 	
-	# Check if the servers record shows the player has the ingredients
+	for file_name in DirAccess.get_files_at(recipe_folder):
+		if file_name.ends_with(".tres"):
+			# Creates an ID from the filename
+			var recipe_id = file_name.get_basename() 
+			var recipe_resource = load(recipe_folder + file_name)
+			recipes[recipe_id] = recipe_resource
+			print("Loaded recipe: ", recipe_id)
+
+@rpc("any_peer", "call_local", "reliable")
+func server_try_craft_recipe(recipe_id: String):
+	var player_id = multiplayer.get_remote_sender_id()
+	
+	#look up the recipe in the dictionary
+	if not recipes.has(recipe_id):
+		print("SERVER: Received invalid recipe ID: ", recipe_id)
+		return
+		
+	var recipe: RecipeData = recipes[recipe_id]
+	#check if the servers record shows the player has the ingredients
 	var can_craft = check_ingredients(player_id, recipe)
 	
 	if can_craft:

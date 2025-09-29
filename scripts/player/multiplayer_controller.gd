@@ -28,8 +28,8 @@ func _physics_process(_delta):
 	if multiplayer.get_unique_id() == player_id:
 		if Input.is_action_just_pressed("craft_test"):
 			#TODO: make this not be planks every time
-			var plank_recipe_path = "res://data/recipies/wooden_plank.tres"
-			CraftingManager.server_try_craft_recipe.rpc_id(1, plank_recipe_path)
+			var plank_recipe_id = "wooden_plank"
+			CraftingManager.server_try_craft_recipe.rpc_id(1, plank_recipe_id)
 			
 		#mining input
 		if Input.is_action_just_pressed("interact"):

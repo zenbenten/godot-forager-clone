@@ -1,0 +1,103 @@
+.
+├── assets
+│   ├── fonts
+│   │   ├── PixelOperator8-Bold.ttf
+│   │   ├── PixelOperator8-Bold.ttf.import
+│   │   ├── PixelOperator8.ttf
+│   │   └── PixelOperator8.ttf.import
+│   └── Sprites
+│       ├── blueberrybush.png
+│       ├── blueberrybush.png.import
+│       ├── Fabricator.png
+│       ├── Fabricator.png.import
+│       ├── rock.png
+│       ├── rock.png.import
+│       ├── tree.png
+│       └── tree.png.import
+├── data
+│   ├── crafting_stations
+│   │   └── basic_fabricator.tres
+│   ├── items
+│   │   └── wooden_plank.tres
+│   ├── materials
+│   │   ├── berries.tres
+│   │   ├── stone.tres
+│   │   └── wood.tres
+│   └── recipes
+│       └── wooden_plank.tres
+├── file_structure.txt
+├── globals
+│   ├── build_manager.gd
+│   ├── build_manager.gd.uid
+│   ├── crafting_manager.gd
+│   ├── crafting_manager.gd.uid
+│   ├── inventory_manager.gd
+│   ├── inventory_manager.gd.uid
+│   ├── multiplayer_manager.gd
+│   ├── multiplayer_manager.gd.uid
+│   ├── server_manager.gd
+│   ├── server_manager.gd.uid
+│   ├── steam_manager.gd
+│   ├── steam_manager.gd.uid
+│   ├── world_manager.gd
+│   └── world_manager.gd.uid
+├── icon.svg
+├── icon.svg.import
+├── project.godot
+├── scenes
+│   ├── networks
+│   │   ├── enet_network.tscn
+│   │   └── steam_network.tscn
+│   ├── objects
+│   │   ├── crafting_stations
+│   │   │   └── basic_fabricator.tscn
+│   │   └── material_sources
+│   │       ├── bush.tscn
+│   │       ├── rock.tscn
+│   │       └── tree.tscn
+│   ├── player
+│   │   └── multiplayer_player.tscn
+│   ├── ui
+│   │   ├── crafting_stations_ui.tscn
+│   │   ├── inventory_ui.tscn
+│   │   └── menu_bar_ui.tscn
+│   └── world
+│       └── game.tscn
+├── scripts
+│   ├── data
+│   │   ├── building_data.gd
+│   │   ├── building_data.gd.uid
+│   │   ├── item_data.gd
+│   │   ├── item_data.gd.uid
+│   │   ├── recipe_data.gd
+│   │   └── recipe_data.gd.uid
+│   ├── networks
+│   │   ├── enet_network.gd
+│   │   ├── enet_network.gd.uid
+│   │   ├── network_manager.gd
+│   │   ├── network_manager.gd.uid
+│   │   ├── steam_network.gd
+│   │   └── steam_network.gd.uid
+│   ├── objects
+│   │   ├── rock.gd
+│   │   ├── rock.gd.uid
+│   │   ├── tree.gd
+│   │   └── tree.gd.uid
+│   ├── player
+│   │   ├── multiplayer_controller.gd
+│   │   ├── multiplayer_controller.gd.uid
+│   │   ├── multiplayer_input.gd
+│   │   └── multiplayer_input.gd.uid
+│   ├── ui
+│   │   ├── crafting_stations_ui.gd
+│   │   ├── crafting_stations_ui.gd.uid
+│   │   ├── inventory_ui.gd
+│   │   ├── inventory_ui.gd.uid
+│   │   ├── menu_bar_ui.gd
+│   │   └── menu_bar_ui.gd.uid
+│   └── world
+│       ├── game.gd
+│       └── game.gd.uid
+└── steam_appid.txt
+
+25 directories, 76 files
