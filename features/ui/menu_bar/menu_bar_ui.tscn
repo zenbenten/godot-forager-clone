@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6rrgs2sjev50"]
+
+[ext_resource type="Script" uid="uid://tlsy7rvkxe6" path="res://features/ui/menu_bar/menu_bar_ui.gd" id="1_lhveu"]
+[ext_resource type="PackedScene" uid="uid://qvgqrs4qyppc" path="res://features/ui/crafting_menu/crafting_stations_ui.tscn" id="2_mb8tw"]
+[ext_resource type="Resource" uid="uid://ct2j6kg0vxifn" path="res://features/crafting/stations/station_data/basic_fabricator.tres" id="3_vh026"]
+
+[node name="MenuBarUI" type="PanelContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -35.0
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+script = ExtResource("1_lhveu")
+crafting_stations_panel = ExtResource("2_mb8tw")
+fabricator_build_data = ExtResource("3_vh026")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CategoryButtons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CraftingStations" type="Button" parent="VBoxContainer/CategoryButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Crafting Stations"
+
+[node name="OptionB" type="Button" parent="VBoxContainer/CategoryButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Option B"
+
+[node name="OptionC" type="Button" parent="VBoxContainer/CategoryButtons"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Option C"
+
+[node name="WrapperNode" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CategoryContentContainer" type="Control" parent="VBoxContainer/WrapperNode"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.75
+offset_top = -80.0
+offset_right = 305.25
+offset_bottom = -80.0
+grow_horizontal = 2

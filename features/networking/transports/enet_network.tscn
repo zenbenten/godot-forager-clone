@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cay75a4bjl5f0"]
+
+[ext_resource type="Script" uid="uid://bbr76vvtw4hnl" path="res://features/networking/transports/enet_network.gd" id="1_g3r4g"]
+[ext_resource type="PackedScene" uid="uid://d226nufmlvivj" path="res://features/player/multiplayer_player.tscn" id="2_2sebm"]
+
+[node name="EnetNetwork" type="Node"]
+script = ExtResource("1_g3r4g")
+multiplayer_scene = ExtResource("2_2sebm")

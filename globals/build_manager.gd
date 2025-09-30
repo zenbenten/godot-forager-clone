@@ -13,7 +13,7 @@ var building_registry = {}
 
 func _ready():
 	#path to all BuildingData .tres files
-	var building_data_folder = "res://data/crafting_stations/"
+	var building_data_folder = "res://features/crafting/stations/station_data/"
 	
 	for file_name in DirAccess.get_files_at(building_data_folder):
 		if file_name.ends_with(".tres"):

@@ -1,6 +1,6 @@
 extends Node
 
-@export_dir var recipe_folder: String
+
 var recipes = {}
 var players_container: Node = null
 
@@ -8,6 +8,8 @@ func register_players_container(container_node: Node):
 	players_container = container_node
 	
 func _ready():
+	var recipe_folder = "res://features/crafting/recipes/"
+
 	for file_name in DirAccess.get_files_at(recipe_folder):
 		if file_name.ends_with(".tres"):
 			# Creates an ID from the filename
