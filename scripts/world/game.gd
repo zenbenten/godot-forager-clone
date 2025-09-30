@@ -1,12 +1,22 @@
 extends Node
 
-const menu_bar_scene = preload("res://scenes/ui/menu_bar_ui.tscn")
-@onready var ui_canvas = $"../UI"
+@export var menu_bar_scene: PackedScene
+@export var lobby_button_font: Font
 var current_menu_bar_instance = null
+@onready var spawner = %BuildingSpawner
+@onready var buildings_container = %Buildings
+@onready var players_container = %Players
+@export var ui_canvas: CanvasLayer
 
 func _ready():
 	MultiplayerManager.game_manager = self
 	print("Game Manager ready. Please host or join a game.")
+	
+	BuildManager.register_building_spawner(spawner)
+	BuildManager.register_buildings_container(buildings_container)
+	BuildManager.register_players_container(players_container)
+	
+	CraftingManager.register_players_container(players_container)
 
 func become_host():
 	print("Become host pressed")
@@ -57,7 +67,7 @@ func _on_lobby_match_list(lobbies: Array):
 			lobby_button.add_theme_font_size_override("font_size", 8) 
 			
 			var fv = FontVariation.new()
-			fv.set_base_font(load("res://assets/fonts/PixelOperator8.ttf"))
+			fv.set_base_font(lobby_button_font)
 			lobby_button.add_theme_font_override("font", fv)
 			lobby_button.set_name("lobby_%s" % lobby) 
 			lobby_button.alignment = HORIZONTAL_ALIGNMENT_LEFT

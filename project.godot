@@ -23,11 +23,12 @@ buses/default_bus_layout=""
 
 MultiplayerManager="*res://globals/multiplayer_manager.gd"
 SteamManager="*res://globals/steam_manager.gd"
-InventoryManager="*res://globals/inventory_manager.gd"
 CraftingManager="*res://globals/crafting_manager.gd"
 BuildManager="*res://globals/build_manager.gd"
+InventoryManager="*res://globals/inventory_manager.gd"
 WorldManager="*res://globals/world_manager.gd"
 ServerManager="*res://globals/server_manager.gd"
+TestSingleton="*res://globals/test_singleton.gd"
 
 [display]
 

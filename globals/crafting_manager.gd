@@ -1,11 +1,13 @@
 extends Node
 
+@export_dir var recipe_folder: String
 var recipes = {}
+var players_container: Node = null
 
-func _ready():
-	#path for all recipe .tres files
-	var recipe_folder = "res://data/recipes/"
+func register_players_container(container_node: Node):
+	players_container = container_node
 	
+func _ready():
 	for file_name in DirAccess.get_files_at(recipe_folder):
 		if file_name.ends_with(".tres"):
 			# Creates an ID from the filename
@@ -57,7 +59,7 @@ func consume_ingredients(p_id, p_recipe: RecipeData):
 			if inventory[ingredient] <= 0:
 				inventory.erase(ingredient)
 			# tell client about inventory change
-			var player_node = get_tree().get_root().get_node("Game/Players").get_node(str(p_id))
+			var player_node = players_container.get_node(str(p_id))
 			player_node.remove_item_from_inventory.rpc_id(p_id, ingredient.resource_path, required)
 
 func add_crafted_item(p_id, p_recipe: RecipeData):
@@ -67,5 +69,5 @@ func add_crafted_item(p_id, p_recipe: RecipeData):
 	var crafted_count = p_recipe.output_quantity
 	inventory[crafted_item] = inventory.get(crafted_item, 0) + crafted_count
 	#tell client about inventory change
-	var player_node = get_tree().get_root().get_node("Game/Players").get_node(str(p_id))
+	var player_node = players_container.get_node(str(p_id))
 	player_node.add_item_to_inventory.rpc_id(p_id, crafted_item.resource_path, crafted_count)
